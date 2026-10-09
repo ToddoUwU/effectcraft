@@ -365,3 +365,8 @@ mod tests {
         assert_eq!(parse_args(Vec::new(), Some("9000".into())).map(|a| a.control_port), Some(Some(9000)));
     }
 }
+
+// PersonalUpdates: native Wayland file drops come from the patched winit (root Cargo.toml);
+// this fails the build if the patch ever stops applying.
+#[cfg(target_os = "linux")]
+const _: bool = winit::platform::wayland::FILE_DROPS;

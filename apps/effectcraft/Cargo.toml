@@ -35,3 +35,7 @@ muda = { version = "0.21", default-features = false }
 objc2 = "0.6"
 # NSApplication hide / hide others / show all, and the pasteboard for Edit ▸ Paste in text fields.
 objc2-app-kit = { version = "0.3", default-features = false, features = ["std", "NSApplication", "NSResponder", "NSPasteboard"] }
+
+# PersonalUpdates: checks the patched winit with native Wayland file drops is in use (main.rs).
+[target.'cfg(target_os = "linux")'.dependencies]
+winit = { version = "0.30", default-features = false, features = ["wayland"] }
